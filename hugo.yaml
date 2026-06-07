@@ -1,0 +1,61 @@
+# Hugo configuration file
+title: Fynerisor
+
+# import hextra as module
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+markup:
+  # allow raw html
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
+menu:
+  main:
+    - name: Docs
+      pageRef: /docs
+      weight: 1
+    - name: About
+      pageRef: /about
+      weight: 2
+    - name: Download
+      pageRef: /download
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub ↗
+      weight: 5
+      url: "https://github.com/uidbz/fynerisor"
+      params:
+        icon: github
+
+params:
+  description: Fynerisor - Risor scripting interface for Fyne GUI applications
+
+  # Custom CSS
+  customCss:
+    - "css/custom.css"
+
+  navbar:
+    displayTitle: false
+    displayLogo: true
+    logo:
+      path: fynerisor-logo-with-text.png
+      dark: fynerisor-logo-with-text.png
+      width: 180
+      height: 40
+
+  footer:
+    displayCopyright: false
+    displayPoweredBy: true
+
+  editURL:
+    enable: false

@@ -1,0 +1,39 @@
+/* Custom CSS to make the documentation content pane wider */
+
+/* Increase max-width of the main content container */
+.hx-container {
+  max-width: 100% !important;
+}
+
+/* Adjust the content wrapper to be wider */
+.hx-mx-auto {
+  max-width: 90rem !important; /* Default is around 80rem, increasing to 90rem */
+}
+
+/* Specifically target the docs content area */
+article.hx-w-full {
+  max-width: none !important;
+}
+
+/* Override Hextra's default prose max-width */
+.hx-prose {
+  max-width: 85ch !important; /* Increased from default ~65ch */
+}
+
+/* Adjust the main content area max-width */
+main .hx-max-w-screen-lg {
+  max-width: 100% !important;
+}
+
+/* Make the article content wider on larger screens */
+@media (min-width: 1024px) {
+  .hx-prose {
+    max-width: 95ch !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hx-prose {
+    max-width: 110ch !important;
+  }
+}
