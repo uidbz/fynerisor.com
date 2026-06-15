@@ -4,7 +4,7 @@ type: docs
 weight: 7
 ---
 
-Quick reference cheat sheet for Fynerisor v0.5.0 development with **Risor v2 syntax**.
+Quick reference cheat sheet for Fynerisor v0.6.0 development with **Risor v2 syntax**.
 
 ## Basic Widgets
 
@@ -49,6 +49,9 @@ window.SetStatus("text")
 window.Title = "My App"  // Get or set window title
 window.Do(() => { /* update GUI from background */ })
 window.OnDropped((paths) => { /* handle file drops */ })
+window.AddShortcut("Ctrl+S", () => { /* save action */ })
+window.RemoveShortcut("Ctrl+S")
+window.SetMainMenu(mainMenu)
 ```
 
 **Properties**: `window.DroppedPaths` (array of dropped file paths)
@@ -122,13 +125,37 @@ go(() => {
 
 ```js
 require("@gui")
-require(["v0.4", "@gui", "@http", "@sql"])
+require(["v0.6", "@gui", "@http", "@sql"])
 
 import("./utils.risor")
 import("https://example.com/helpers.risor")
 ```
 
 **Available Modules**: `@gui`, `@http`, `@sql`, `@os`, `@strings`, `@filepath`, `@time`, `@io`
+
+## Keyboard Shortcuts
+
+```js
+// Register global shortcuts
+window.AddShortcut("Ctrl+S", () => {
+    window.SetStatus("Saved!")
+})
+
+window.AddShortcut("Alt+Shift+N", () => {
+    // Multi-modifier shortcut
+})
+
+// Function keys
+window.AddShortcut("F1", () => {
+    dialog.ShowInformation("Help", "Help info")
+})
+
+// Remove shortcuts dynamically
+window.RemoveShortcut("Ctrl+S")
+```
+
+**Modifiers**: `Ctrl`, `Alt`, `Shift`, `Super`/`Cmd`  
+**Keys**: `A-Z`, `0-9`, `F1-F12`, `Return`, `Escape`, `Tab`, `Space`, arrows, etc.
 
 ## Common Patterns
 

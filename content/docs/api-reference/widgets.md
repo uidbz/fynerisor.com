@@ -4,7 +4,7 @@ type: docs
 weight: 1
 ---
 
-Widgets are interactive UI components. Fynerisor v0.5.0 provides **37 widgets** with 100% fynerisor coverage.
+Widgets are interactive UI components. Fynerisor v0.6.0 provides **48+ widgets** with 100% fynerisor coverage.
 
 All examples use **Risor v2 syntax** with arrow functions.
 
@@ -651,7 +651,7 @@ let chart = chart.NewBarChart("Sales Data", data)
 
 ## Summary
 
-Fynerisor v0.5.0 provides **37 widgets** with 100% coverage:
+Fynerisor v0.6.0 provides **48+ widgets** with 100% coverage:
 
 - **High Priority** (11/11): Button, Label, Entry, Check, Select, Form, Table, ProgressBar, List, Calendar, DateEntry
 - **Medium Priority** (13/13): MultiLineEntry, CheckGroup, RadioGroup, Slider, Icon, Hyperlink, Card, Tree, Accordion, Toolbar, Separator, ActivityIndicator, SelectEntry

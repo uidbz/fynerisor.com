@@ -4,7 +4,7 @@ type: docs
 weight: 2
 ---
 
-Containers organize and layout multiple widgets. Fynerisor v0.5.0 provides **10 container types** with 100% coverage.
+Containers organize and layout multiple widgets. Fynerisor v0.6.0 provides **10 container types** with 100% coverage.
 
 All examples use **Risor v2 syntax** with `let` for variables.
 
@@ -299,7 +299,7 @@ window.SetContent(app)
 
 ## Summary
 
-Fynerisor v0.5.0 provides **10 container types** (100% coverage):
+Fynerisor v0.6.0 provides **10 container types** (100% coverage):
 
 1. **VBox** - Vertical stack
 2. **HBox** - Horizontal stack

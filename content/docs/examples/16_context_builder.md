@@ -1,0 +1,120 @@
+---
+title: Context Builder (Headless)
+type: docs
+weight: 16
+---
+
+Demonstrates headless Risor script execution using the `core` package without GUI dependencies.
+
+## Features
+
+- **Headless execution** - Run Risor scripts without GUI
+- **Static compilation** - No OpenGL/X11 dependencies required
+- **Module support** - Access HTTP, SQL, OS, and other modules
+- **Import system** - Load reusable code from files
+- **CLI tools** - Perfect for command-line utilities and batch processing
+
+## Code
+
+```go
+package main
+
+import (
+    "fmt"
+    "log"
+    "os"
+
+    "github.com/uidbz/fynerisor/core"
+)
+
+func main() {
+    // Example 1: Simple eval without imports
+    ctx := core.NewContext(
+        core.WithHTTP(),
+        core.WithOS(),
+    )
+
+    script1 := `
+        require(["v0.2", "@http", "@os"])
+
+        let platform = os.goos()
+        print("Running on:", platform)
+
+        // Simple calculation
+        let numbers = [1, 2, 3, 4, 5].map(x => x * 2)
+        let sum = 0
+        numbers.each(n => { sum = sum + n })
+        print("Sum of doubled numbers:", sum)
+
+        sum
+    `
+
+    fmt.Println("=== Example 1: Simple eval ===")
+    result, err := ctx.Eval(script1)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println("Result:", result)
+
+    // Example 2: Eval with imports
+    fmt.Println("\n=== Example 2: With imports ===")
+
+    // Create a simple utils.risor file
+    utilsScript := `
+        let double = (x) => x * 2
+        let triple = (x) => x * 3
+        let greet = (name) => "Hello, " + name + "!"
+    `
+
+    err = os.WriteFile("/tmp/test-utils.risor", []byte(utilsScript), 0644)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    mainScript := `
+        import("/tmp/test-utils.risor")
+        require("v0.2")
+
+        let result1 = double(5)
+        let result2 = triple(4)
+        let greeting = greet("World")
+
+        print("double(5) =", result1)
+        print("triple(4) =", result2)
+        print(greeting)
+
+        [result1, result2, greeting]
+    `
+
+    fetchFunc := func(path string) (string, error) {
+        data, err := os.ReadFile(path)
+        return string(data), err
+    }
+
+    result, err = ctx.EvalWithImports(mainScript, fetchFunc)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println("Result:", result)
+
+    fmt.Println("\n=== All examples completed successfully ===")
+}
+```
+
+## Use Cases
+
+- **CLI tools** - Build command-line utilities with scripting support
+- **Batch processing** - Process data without GUI overhead
+- **Server-side scripts** - Run Risor scripts in server environments
+- **Static binaries** - Compile standalone executables without GUI dependencies
+
+## Running
+
+```bash
+cd examples/16-context-builder
+go run main.go
+```
+
+## Full Source
+
+[View full example on GitHub ↗](https://github.com/uidbz/fynerisor/tree/main/examples/16-context-builder)

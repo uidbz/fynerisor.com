@@ -1,5 +1,11 @@
 /* Custom CSS to make the documentation content pane wider */
 
+/* Fix logo height overflow */
+.hx-navbar img {
+  max-height: 32px !important;
+  height: auto !important;
+}
+
 /* Increase max-width of the main content container */
 .hx-container {
   max-width: 100% !important;

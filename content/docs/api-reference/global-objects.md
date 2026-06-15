@@ -35,6 +35,20 @@ window.OnDropped((paths) => {
 
 // Access dropped file paths
 let paths = window.DroppedPaths
+
+// Keyboard shortcuts (v0.6.0+)
+window.AddShortcut("Ctrl+S", () => {
+    window.SetStatus("Saved!")
+})
+
+window.AddShortcut("F1", () => {
+    dialog.ShowInformation("Help", "Press Ctrl+S to save")
+})
+
+window.RemoveShortcut("Ctrl+S")
+
+// Set main menu (macOS only)
+window.SetMainMenu(mainMenu)
 ```
 
 **Methods**:
@@ -42,12 +56,21 @@ let paths = window.DroppedPaths
 - `window.SetStatus(text)` - Update status message
 - `window.Do(callback)` - Execute callback on UI thread (for goroutine safety)
 - `window.OnDropped(callback)` - Handle file drop events
+- `window.AddShortcut(shortcut, callback)` - Register global keyboard shortcut (v0.6.0+)
+- `window.RemoveShortcut(shortcut)` - Remove keyboard shortcut (v0.6.0+)
+- `window.SetMainMenu(menu)` - Set main menu bar (macOS only)
 
 **Properties**:
 - `window.Title` - Get/set window title (read/write)
 - `window.DroppedPaths` - Array of dropped file paths
 
-**Use cases**: Window management, status updates, file drop handling, thread-safe GUI updates
+**Keyboard Shortcuts** (v0.6.0+):
+- Supports modifiers: `Ctrl`, `Alt`, `Shift`, `Super`/`Cmd`
+- Keys: `A-Z`, `0-9`, `F1-F12`, `Return`, `Escape`, `Tab`, `Space`, arrows, etc.
+- Multi-modifier combinations: `"Ctrl+Shift+S"`, `"Alt+Shift+F1"`
+- Cross-platform: Works on all platforms with standard modifier names
+
+**Use cases**: Window management, status updates, file drop handling, thread-safe GUI updates, keyboard shortcuts
 
 ---
 
@@ -365,7 +388,7 @@ let ext = filepath.ext("file.txt")  // ".txt"
 ## Complete Example: Database Table Viewer
 
 ```js
-require(["v0.4", "@gui", "@sql"])
+require(["v0.6", "@gui", "@sql"])
 
 // Connect to database
 let conn = sql.connect("sqlite3::memory:")

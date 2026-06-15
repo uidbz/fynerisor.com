@@ -50,8 +50,8 @@ params:
     logo:
       path: fynerisor-logo-with-text.png
       dark: fynerisor-logo-with-text.png
-      width: 180
-      height: 40
+      width: 160
+      height: 32
 
   footer:
     displayCopyright: false

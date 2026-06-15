@@ -12,14 +12,15 @@ Fynerisor provides Risor v2 script bindings for the Fyne GUI toolkit, enabling y
 
 Fynerisor can be used as a CLI tool to run scripts directly, or embedded as a library in your Go applications to provide scriptable interfaces. The package is split into `core` (headless) and `gui` (with UI) to support both static compilation and full desktop applications.
 
-**Current Version:** **v0.5.0** (Production Ready)
+**Current Version:** **v0.6.0** (Production Ready)
 
 ## Key Features
 
 ### Script-based UI
 - Build GUIs using Risor v2 scripts with modern arrow function syntax
 - No compilation needed - just write and run
-- **34+ widgets** available (60% Fyne coverage, all high/medium priority complete)
+- **48+ widgets** available (comprehensive Fyne coverage)
+- **Keyboard shortcuts** - Global shortcuts and menu integration
 - Data binding for reactive UIs with automatic updates
 
 ### Dual Package Architecture
@@ -27,10 +28,11 @@ Fynerisor can be used as a CLI tool to run scripts directly, or embedded as a li
 - **`core` package** - Headless execution without GUI dependencies (for CLI tools, static compilation)
 
 ### Rich UI Components
-- 34+ widgets: buttons, forms, tables, charts, calendars, trees, lists, and more
+- 48+ widgets: buttons, forms, tables, charts, calendars, trees, lists, and more
 - 10+ container types: VBox, HBox, Border, Grid, Split, Scroll, etc.
 - Canvas objects for images and custom drawing
 - Charts for data visualization
+- Keyboard shortcuts and menu support
 
 ### Built-in Modules
 - **HTTP** - REST API calls with JSON support
@@ -109,7 +111,7 @@ See the [examples](#your-first-app) below for embedding Fynerisor in your Go app
 Create a file called `hello.risor`:
 
 ```js
-require(["v0.4", "@gui"])
+require(["v0.6", "@gui"])
 
 let count = 0
 let label = widget.NewLabel(sprintf("Count: %d", count))
@@ -140,7 +142,7 @@ func main() {
     )
     
     fw.LoadScript(`
-        require(["v0.4", "@gui"])
+        require(["v0.6", "@gui"])
         
         let count = 0
         let label = widget.NewLabel(sprintf("Count: %d", count))

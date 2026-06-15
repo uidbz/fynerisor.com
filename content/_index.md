@@ -7,10 +7,11 @@ Fynerisor provides Risor v2 script bindings for the Fyne GUI toolkit, enabling y
 
 ## Features
 
-- 🎨 **34+ Widgets** - Buttons, forms, tables, trees, charts, and more
+- 🎨 **48+ Widgets** - Buttons, forms, tables, trees, charts, and more
+- ⌨️ **Keyboard Shortcuts** - Global shortcuts and menu integration
 - 🔧 **Embeddable** - Use as a library in your Go applications  
 - 📦 **Module System** - HTTP, SQL, OS, File I/O, Time, and String utilities
-- 🔄 **Import System** - Load scripts from local files or HTTP(S) URLs
+- 🔄 **Import System** - Load scripts from local files or HTTP(S) URLs with namespace isolation
 - 🧵 **Concurrency** - Background tasks with `go()` and safe GUI updates
 - 📱 **Cross-Platform** - Linux, Windows, macOS, Android
 - ⚡ **Static Compilation** - Headless mode with no GUI dependencies
@@ -24,7 +25,7 @@ Fynerisor provides Risor v2 script bindings for the Fyne GUI toolkit, enabling y
 **Quick snippet** (simplified for brevity - [view full example on GitHub ↗](https://github.com/uidbz/fynerisor/blob/main/examples/hello.risor)):
 
 ```js
-require(["v0.4", "@gui"])
+require(["v0.6", "@gui"])
 
 let count = 0
 let label = widget.NewLabel(sprintf("Count: %d", count))

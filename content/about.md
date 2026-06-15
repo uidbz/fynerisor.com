@@ -11,10 +11,11 @@ Fynerisor provides Risor v2 script bindings for the Fyne GUI toolkit, enabling y
 Write GUI applications in scripts instead of compiled code - perfect for rapid prototyping, tools, and embeddable interfaces
 {{< /callout >}}
 
-## Current Version: **v0.5.0**
+## Current Version: **v0.6.0**
 
 Fynerisor is production-ready with comprehensive widget coverage:
-- **34+ Widgets** - 60% of Fyne coverage, all high/medium priority widgets complete
+- **48+ Widgets** - Comprehensive Fyne coverage with all major widgets
+- **Keyboard Shortcuts** - Global shortcuts and menu integration
 - **Risor v2** - Modern syntax with arrow functions and functional iteration
 - **Data Binding** - Reactive UIs with automatic updates
 - **Complete Module System** - HTTP, SQL, OS, Time, File I/O, Strings, Filepath
