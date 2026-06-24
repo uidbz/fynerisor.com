@@ -1,0 +1,77 @@
+require(["v0.1.0", "@gui"])
+
+// Fynerisor example browser - welcome page
+// Each button opens an example via a relative URL (browser.Open).
+
+// Logo banner. Build an absolute URL from the current location so it resolves
+// the same way under file://, localhost, and fynerisor.com.
+let logo = canvas.NewImageFromURI(browser.GetURL() + "/fynerisor-logo-with-text.png")
+
+let title = widget.NewLabel("Fynerisor Examples")
+title.TextStyle.Bold = true
+title.Alignment = constants.TextAlignCenter
+
+let subtitle = widget.NewLabel("Click an example to load it. Use the browser's back button to return.")
+subtitle.Alignment = constants.TextAlignCenter
+subtitle.Wrapping = constants.TextWrapWord
+
+// Example catalog: [relative path, button label]
+let examples = [
+    ["01-hello-world", "Hello World"],
+    ["02-button-callback", "Button Callback"],
+    ["03-form-input", "Form Input"],
+    ["04-table-display", "Table Display"],
+    ["05-progress-widgets", "Progress & Slider"],
+    ["06-icon-hyperlink-card", "Icon, Link & Card"],
+    ["07-radiogroup", "RadioGroup"],
+    ["08-accordion", "Accordion"],
+    ["09-toolbar", "Toolbar"],
+    ["10-calendar", "Calendar"],
+    ["11-list", "List"],
+    ["12-tree", "Tree"],
+    ["13-http-fetch", "HTTP Fetch"],
+    ["17-gridwrap", "GridWrap"],
+    ["18-textgrid", "TextGrid"],
+    ["19-richtext", "RichText"],
+    ["20-button-importance", "Button Importance"],
+    ["21-form-validation", "Form Validation"],
+    ["22-popup", "PopUp"],
+    ["23-menu", "Menu"],
+    ["24-constants", "Constants"],
+    ["25-data-binding", "Data Binding"],
+    ["26-data-binding-types", "Binding Types"],
+    ["27-app-versioning", "App Versioning"],
+    ["30-dialogs", "Dialogs"],
+    ["31-apptabs", "AppTabs"],
+    ["32-table-widgets", "Table Widgets"],
+    ["34-keyboard-shortcuts", "Keyboard Shortcuts"]
+]
+
+// Build a button per example
+let buttons = examples.map(example => {
+    let path = example[0]
+    let label = example[1]
+    return widget.NewButton(label, () => {
+        browser.SetStatus("Loading " + path + " ...")
+        browser.Open(path)
+    })
+})
+
+let grid = container.NewGridWithColumns(3, buttons)
+
+let header = container.NewVBox(
+    container.NewCenter(logo),
+    title,
+    subtitle,
+    widget.NewSeparator()
+)
+
+let layout = container.NewBorder(
+    header,        // top
+    nil,           // bottom
+    nil,           // left
+    nil,           // right
+    container.NewScroll(container.NewPadded(grid))  // center
+)
+
+window.SetContent(layout)
