@@ -7,7 +7,9 @@ Fynerisor provides Risor v2 script bindings for the Fyne GUI toolkit, enabling y
 
 ## Features
 
-- 🎨 **48+ Widgets** - Buttons, forms, tables, trees, charts, and more
+- 🎨 **48+ Widgets** - Buttons, forms, tables, trees, and more
+- 📊 **Charts** - Bar, line, scatter, histogram, and box plot visualizations
+- 🌐 **Browser Package** - Reusable browser UI for navigable, script-driven apps
 - ⌨️ **Keyboard Shortcuts** - Global shortcuts and menu integration
 - 🔧 **Embeddable** - Use as a library in your Go applications  
 - 📦 **Module System** - HTTP, SQL, OS, File I/O, Time, and String utilities

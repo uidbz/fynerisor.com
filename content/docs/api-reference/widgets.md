@@ -4,7 +4,7 @@ type: docs
 weight: 1
 ---
 
-Widgets are interactive UI components. Fynerisor v0.6.0 provides **48+ widgets** with 100% fynerisor coverage.
+Widgets are interactive UI components. Fynerisor v0.7.0 provides **48+ widgets** with 100% fynerisor coverage.
 
 All examples use **Risor v2 syntax** with arrow functions.
 
@@ -636,22 +636,85 @@ let gridWrap = widget.NewGridWrap(items...)
 
 ## Charts
 
+The `chart` global object provides five chart types for data visualization. Charts render at a fixed 8×6 inch resolution using the [gonum/plot](https://github.com/gonum/plot) library.
+
 ### BarChart
 
-Bar chart widget for data visualization.
+Display categorical data with rectangular bars.
 
 ```js
-let data = [5, 10, 15, 20, 15, 10, 5]
-let chart = chart.NewBarChart("Sales Data", data)
+let chart = chart.NewBarChart(
+    "Quarterly Sales",       // title
+    "Revenue ($K)",          // y-axis label
+    ["Q1", "Q2", "Q3", "Q4"],// category labels
+    [120, 150, 180, 200]     // values
+)
 ```
 
-**Use cases**: Data visualization, reports, dashboards
+### LineChart
+
+Show trends over continuous data.
+
+```js
+let chart = chart.NewLineChart(
+    "Growth Over Time",           // title
+    "Month",                      // x-axis label
+    "Revenue ($K)",               // y-axis label
+    [1, 2, 3, 4, 5],              // x values
+    [10, 15, 13, 17, 20]          // y values
+)
+```
+
+### ScatterChart
+
+Visualize individual data points.
+
+```js
+let chart = chart.NewScatterChart(
+    "Data Points",                // title
+    "X Variable",                 // x-axis label
+    "Y Variable",                 // y-axis label
+    [1, 2, 3, 4, 5],              // x values
+    [12, 16, 15, 18, 22]          // y values
+)
+```
+
+### Histogram
+
+Show the distribution of numerical data. A fitted normal-distribution curve (from the data's mean and standard deviation) is automatically overlaid.
+
+```js
+let chart = chart.NewHistogram(
+    "Data Distribution",          // title
+    "Value",                      // x-axis label
+    "Frequency",                  // y-axis label
+    values,                       // array of numbers
+    15                            // number of bins
+)
+```
+
+### BoxPlot
+
+Compare distributions across groups with a five-number summary plus fitted normal-distribution curves.
+
+```js
+let chart = chart.NewBoxPlot(
+    "Group Comparison",                    // title
+    "Values",                              // y-axis label
+    ["Group A", "Group B", "Group C"],     // group labels
+    [groupA, groupB, groupC]               // array of data arrays
+)
+```
+
+**Use cases**: Data visualization, reports, dashboards, statistical analysis
+
+See the [Charts example](../examples/35_charts) for a complete demonstration.
 
 ---
 
 ## Summary
 
-Fynerisor v0.6.0 provides **48+ widgets** with 100% coverage:
+Fynerisor v0.7.0 provides **48+ widgets** with 100% coverage:
 
 - **High Priority** (11/11): Button, Label, Entry, Check, Select, Form, Table, ProgressBar, List, Calendar, DateEntry
 - **Medium Priority** (13/13): MultiLineEntry, CheckGroup, RadioGroup, Slider, Icon, Hyperlink, Card, Tree, Accordion, Toolbar, Separator, ActivityIndicator, SelectEntry

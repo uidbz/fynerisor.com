@@ -34,7 +34,9 @@ In-depth guides on data binding, authentication, configuration, and troubleshoot
 ## Features at a Glance
 
 - **🚀 Rapid Development**: Write scripts, no compilation needed
-- **🎨 48+ Widgets**: Buttons, forms, tables, trees, charts, and more
+- **🎨 48+ Widgets**: Buttons, forms, tables, trees, and more
+- **📊 Charts**: Bar, line, scatter, histogram, and box plot visualizations
+- **🌐 Browser Package**: Reusable browser UI for navigable script-driven apps
 - **⌨️ Keyboard Shortcuts**: Global shortcuts and menu integration
 - **📦 Module System**: HTTP, SQL, OS, Time, File I/O
 - **💾 Database Support**: SQLite, PostgreSQL, MySQL, SQL Server

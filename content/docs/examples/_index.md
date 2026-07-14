@@ -12,7 +12,7 @@ Real-world examples and code snippets to help you build Fynerisor applications.
 
 ## All Examples
 
-Browse all 33 examples demonstrating different widgets and features:
+Browse all 35 examples demonstrating different widgets and features:
 
 {{< cards >}}
   {{< card link="./01_hello_world" title="Hello World" >}}
@@ -48,6 +48,7 @@ Browse all 33 examples demonstrating different widgets and features:
   {{< card link="./32_table_widgets" title="Table Widgets" >}}
   {{< card link="./33_image_gallery" title="Image Gallery" >}}
   {{< card link="./34_keyboard_shortcuts" title="Keyboard Shortcuts" >}}
+  {{< card link="./35_charts" title="Charts" >}}
 {{< /cards >}}
 
 ## Tips & Tricks

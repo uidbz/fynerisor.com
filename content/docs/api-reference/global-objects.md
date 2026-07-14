@@ -47,6 +47,9 @@ window.AddShortcut("F1", () => {
 
 window.RemoveShortcut("Ctrl+S")
 
+// Register a global object after window creation (v0.7.0+)
+window.RegisterGlobal("myapi", myObject)
+
 // Set main menu (macOS only)
 window.SetMainMenu(mainMenu)
 ```
@@ -58,6 +61,7 @@ window.SetMainMenu(mainMenu)
 - `window.OnDropped(callback)` - Handle file drop events
 - `window.AddShortcut(shortcut, callback)` - Register global keyboard shortcut (v0.6.0+)
 - `window.RemoveShortcut(shortcut)` - Remove keyboard shortcut (v0.6.0+)
+- `window.RegisterGlobal(name, value)` - Add a global object after window creation, useful for objects that reference components created after initialization (v0.7.0+)
 - `window.SetMainMenu(menu)` - Set main menu bar (macOS only)
 
 **Properties**:
@@ -323,6 +327,9 @@ let now = time.now()
 // Create date
 let date = time.date(2026, 5, 21)
 
+// Construct from a Unix timestamp (seconds since epoch) (v0.7.0+)
+let t = time.unix(1750000000)
+
 // Parse date string
 let parsed = time.parse("2026-05-21")
 
@@ -434,7 +441,7 @@ Fynerisor provides these global objects:
 - **widget** - Widget factory functions
 - **container** - Container factory functions
 - **canvas** - Canvas object factory
-- **chart** - Chart factory (experimental)
+- **chart** - Chart factory (bar, line, scatter, histogram, box plot)
 
 **Risor v2 Modules** (via `require()`):
 - **@gui** - GUI functionality (automatic in gui mode)

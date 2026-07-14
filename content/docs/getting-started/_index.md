@@ -12,7 +12,7 @@ Fynerisor provides Risor v2 script bindings for the Fyne GUI toolkit, enabling y
 
 Fynerisor can be used as a CLI tool to run scripts directly, or embedded as a library in your Go applications to provide scriptable interfaces. The package is split into `core` (headless) and `gui` (with UI) to support both static compilation and full desktop applications.
 
-**Current Version:** **v0.6.0** (Production Ready)
+**Current Version:** **v0.7.0** (Production Ready)
 
 ## Key Features
 
@@ -31,8 +31,9 @@ Fynerisor can be used as a CLI tool to run scripts directly, or embedded as a li
 - 48+ widgets: buttons, forms, tables, charts, calendars, trees, lists, and more
 - 10+ container types: VBox, HBox, Border, Grid, Split, Scroll, etc.
 - Canvas objects for images and custom drawing
-- Charts for data visualization
+- Charts for data visualization: bar, line, scatter, histogram, and box plot
 - Keyboard shortcuts and menu support
+- Browser package for building navigable, script-driven applications
 
 ### Built-in Modules
 - **HTTP** - REST API calls with JSON support

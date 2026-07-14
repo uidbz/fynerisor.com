@@ -4,7 +4,7 @@ type: docs
 weight: 7
 ---
 
-Quick reference cheat sheet for Fynerisor v0.6.0 development with **Risor v2 syntax**.
+Quick reference cheat sheet for Fynerisor v0.7.0 development with **Risor v2 syntax**.
 
 ## Basic Widgets
 
